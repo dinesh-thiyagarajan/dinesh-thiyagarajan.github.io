@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account – Barks and Meows</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #FF7043; --accent2: #FF4081;
+      --bg: #0D0D14; --card: #16161F; --card2: #1E1E2A;
+      --text: #F0EFF8; --muted: #9890B8; --border: rgba(255,255,255,0.07);
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    header {
+      background: linear-gradient(135deg, rgba(255,112,67,.15), rgba(255,64,129,.1));
+      border-bottom: 1px solid var(--border);
+      padding: 48px 6vw 40px;
+    }
+    .header-back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); text-decoration: none; font-size: .85rem; margin-bottom: 24px; transition: color .2s; }
+    .header-back:hover { color: var(--text); }
+    .header-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+    header h1 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 10px; }
+    header p { color: var(--muted); font-size: .95rem; max-width: 520px; }
+
+    main { max-width: 780px; margin: 0 auto; padding: 56px 6vw 80px; }
+
+    .warning-card {
+      background: rgba(255,80,80,.07); border: 1px solid rgba(255,80,80,.2);
+      border-radius: 16px; padding: 24px 28px; margin-bottom: 48px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .warning-card .wi { font-size: 1.6rem; flex-shrink: 0; }
+    .warning-card div h3 { font-family: 'Nunito', sans-serif; font-weight: 900; color: #ff6b6b; margin-bottom: 6px; }
+    .warning-card div p { color: var(--muted); font-size: .93rem; margin: 0; }
+
+    h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem;
+      margin: 48px 0 16px; color: var(--text);
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 .icon { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem; background: rgba(255,112,67,.15); }
+
+    p { color: var(--muted); margin-bottom: 14px; font-size: .95rem; }
+    ul, ol { margin: 0 0 16px 0; padding: 0; }
+    ul li { color: var(--muted); font-size: .95rem; padding: 6px 0 6px 20px; position: relative; list-style: none; }
+    ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+    .steps-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; counter-reset: steps;
+    }
+    .steps-card p.intro { margin-bottom: 20px; }
+    .step-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      counter-increment: steps;
+    }
+    .step-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: .9rem;
+    }
+    .step-text { color: var(--muted); font-size: .93rem; padding-top: 6px; }
+    .step-text strong { color: var(--text); }
+
+    .data-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px; margin: 16px 0;
+    }
+    .data-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 20px;
+    }
+    .data-item .emoji { font-size: 1.4rem; margin-bottom: 10px; }
+    .data-item h4 { font-family: 'Nunito', sans-serif; font-weight: 800; font-size: .95rem; margin-bottom: 6px; }
+    .data-item p { color: var(--muted); font-size: .85rem; margin: 0; }
+
+    .info-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 24px; margin: 16px 0;
+    }
+    .info-card p { margin: 0; }
+
+    .contact-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; margin-top: 16px;
+    }
+    .contact-card a { color: var(--accent); text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 6vw;
+      text-align: center; color: var(--muted); font-size: .82rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="../" class="header-back">← Back to Barks and Meows</a>
+  <div class="header-logo">🐾 Barks and Meows</div>
+  <h1>Delete Your Account</h1>
+  <p>Account deletion is permanent and cannot be undone. Please read this page carefully before proceeding.</p>
+</header>
+
+<main>
+  <div class="warning-card">
+    <div class="wi">⚠️</div>
+    <div>
+      <h3>This action is permanent</h3>
+      <p>Once you delete your account, all your data is immediately removed and cannot be recovered. There is no undo.</p>
+    </div>
+  </div>
+
+  <h2><span class="icon">📱</span> How to Delete Your Account</h2>
+  <div class="steps-card">
+    <p class="intro" style="color:var(--muted);">Follow these steps inside the Barks and Meows app:</p>
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-text">Open the <strong>Barks and Meows</strong> app on your device</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-text">Navigate to the <strong>Profile</strong> tab in the bottom navigation</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-text">Scroll down and tap <strong>"Delete Account"</strong></div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-text">Read the confirmation message, then tap <strong>"Delete"</strong> to confirm</div>
+    </div>
+  </div>
+
+  <h2><span class="icon">🗑️</span> What Gets Deleted</h2>
+  <p>When you delete your account, the following data is permanently removed:</p>
+  <div class="data-grid">
+    <div class="data-item">
+      <div class="emoji">👤</div>
+      <h4>Account Info</h4>
+      <p>Your email address and authentication credentials</p>
+    </div>
+    <div class="data-item">
+      <div class="emoji">🐾</div>
+      <h4>Pet Profiles</h4>
+      <p>All pet names, ages, and categories you created</p>
+    </div>
+    <div class="data-item">
+      <div class="emoji">💉</div>
+      <h4>Vaccine Records</h4>
+      <p>All vaccination notes, dates, and doctor information</p>
+    </div>
+    <div class="data-item">
+      <div class="emoji">⚙️</div>
+      <h4>App Preferences</h4>
+      <p>Any settings or preferences you configured</p>
+    </div>
+  </div>
+
+  <h2><span class="icon">🕐</span> Data Retention</h2>
+  <div class="info-card">
+    <p><strong style="color:var(--text);">Immediate deletion:</strong> All your data is deleted immediately upon account deletion.</p>
+  </div>
+  <p>Backup copies in our systems may take up to 30 days to be fully purged. Some data may be retained as required by law for fraud prevention purposes.</p>
+
+  <h2><span class="icon">💡</span> Before You Delete</h2>
+  <ul>
+    <li><strong>This is irreversible</strong> — you cannot recover your account or data after deletion</li>
+    <li><strong>Save your data first</strong> — we don't currently offer data export, so save important information manually</li>
+    <li><strong>Just need a break?</strong> — You can log out and come back anytime without losing your data</li>
+  </ul>
+
+  <h2><span class="icon">✉️</span> Need Help?</h2>
+  <div class="contact-card">
+    <p style="color:var(--text); font-weight:600; margin-bottom:8px;">Having issues or questions?</p>
+    <p style="margin-bottom:4px;">Email us at <a href="mailto:dinesht.workspace@gmail.com">dinesht.workspace@gmail.com</a></p>
+    <p style="margin:0; font-size:.85rem;">We typically respond within 24–48 hours.</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2024 Barks and Meows · <a href="../">Home</a> · <a href="../privacy/">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>

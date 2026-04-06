@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Balloon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #5546CB; --accent2: #38BDF8;
+      --bg: #080C14; --card: #101726; --card2: #172033;
+      --text: #EFF8FF; --muted: #7EA8C4; --border: rgba(255,255,255,0.07);
+    }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+    header {
+      background: linear-gradient(135deg, rgba(85,70,203,.15), rgba(56,189,248,.08));
+      border-bottom: 1px solid var(--border);
+      padding: 48px 6vw 40px;
+    }
+    .header-back { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); text-decoration: none; font-size: .85rem; margin-bottom: 24px; transition: color .2s; }
+    .header-back:hover { color: var(--text); }
+    .header-logo { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 12px; }
+    header h1 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 10px; }
+    .updated { color: var(--muted); font-size: .85rem; }
+
+    main { max-width: 780px; margin: 0 auto; padding: 56px 6vw 80px; }
+
+    .summary-card {
+      background: linear-gradient(135deg, rgba(85,70,203,.12), rgba(56,189,248,.06));
+      border: 1px solid rgba(85,70,203,.2);
+      border-radius: 16px; padding: 28px; margin-bottom: 48px;
+    }
+    .summary-card h2 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.1rem; color: var(--accent2); margin-bottom: 10px; }
+    .summary-card p { color: var(--muted); font-size: .95rem; }
+
+    h2 {
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.25rem;
+      margin: 48px 0 16px; color: var(--text);
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 .icon { width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1rem; background: rgba(85,70,203,.15); }
+    p { color: var(--muted); margin-bottom: 14px; font-size: .95rem; }
+    ul { margin: 0 0 16px 0; padding: 0; list-style: none; }
+    ul li { color: var(--muted); font-size: .95rem; padding: 6px 0 6px 20px; position: relative; }
+    ul li::before { content: '–'; position: absolute; left: 0; color: var(--accent2); }
+
+    .info-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 22px 24px; margin: 16px 0;
+    }
+    .info-card p { margin: 0; }
+
+    .contact-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px; margin-top: 16px;
+    }
+    .contact-card a { color: var(--accent2); text-decoration: none; }
+    .contact-card a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 6vw;
+      text-align: center; color: var(--muted); font-size: .82rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="../" class="header-back">← Back to Balloon</a>
+  <div class="header-logo">🎈 Balloon</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: February 6, 2026</p>
+</header>
+
+<main>
+  <div class="summary-card">
+    <h2>Summary</h2>
+    <p>Balloon does not collect personal information. Only your high score is stored locally on your device. We use Firebase Analytics to collect anonymous usage data to improve the game. No account is required.</p>
+  </div>
+
+  <h2><span class="icon">📋</span> Introduction</h2>
+  <p>Balloon ("we," "our," or "us") operates the Balloon mobile application. This Privacy Policy explains how we handle information when you use our app. By using the app, you agree to the practices described here.</p>
+
+  <h2><span class="icon">📥</span> Information We Collect</h2>
+
+  <h3>Locally Stored Data</h3>
+  <div class="info-card">
+    <p><strong>High Score:</strong> Your best game score is saved locally on your device using Android DataStore. This data is never transmitted to any server or third party and is deleted when you uninstall the app.</p>
+  </div>
+
+  <h3>Anonymous Usage Data</h3>
+  <div class="info-card">
+    <p>We use <strong>Firebase Analytics</strong> to collect anonymous, aggregated usage data such as session information and feature interactions. This data contains no personally identifiable information and is used to understand how the game is played and to improve the experience over time.</p>
+  </div>
+
+  <h2><span class="icon">🚫</span> Information We Do NOT Collect</h2>
+  <ul>
+    <li>Personal information (name, email, phone number, etc.)</li>
+    <li>Location data</li>
+    <li>Access to contacts, camera, or microphone</li>
+    <li>No account creation or login required</li>
+  </ul>
+
+  <h2><span class="icon">🔒</span> Data Security</h2>
+  <p>Since we do not collect or transmit personal data, there is no risk of personal data breach from our end. All data remains on your device and is removed when you uninstall the app.</p>
+
+  <h2><span class="icon">🔄</span> Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Changes will be posted on this page. We encourage you to review it periodically.</p>
+
+  <h2><span class="icon">✉️</span> Contact Us</h2>
+  <div class="contact-card">
+    <p style="color:var(--text); font-weight:600; margin-bottom:8px;">Questions about this Privacy Policy?</p>
+    <p style="margin:0;">Email: <a href="mailto:dinesh.thiyagarajann@gmail.com">dinesh.thiyagarajann@gmail.com</a></p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Balloon · <a href="../">Home</a></p>
+</footer>
+
+</body>
+</html>
